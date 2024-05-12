@@ -3,48 +3,102 @@
 // 最外层包裹元素
 #wrapper {
   // 头部
-  .headTop {
-    background-color: #eaeaea;
-    height: 30px;
+  #header {
+    // 上面部分
+    .headTop {
+      background-color: #eaeaea;
+      height: 30px;
 
-    // 版心元素
-    .headTopMain {
-      width: 1200px;
-      margin: 0 auto;
-      line-height: 30px;
-      .clearfix();
+      // 版心元素
+      .headTopMain {
+        width: 1200px;
+        margin: 0 auto;
+        line-height: 30px;
+        .clearfix();
 
-      // 左侧
-      .left {
-        float: left;
-        h5 {
+        // 左侧
+        .left {
           float: left;
-          margin-right: 5px;
+          h5 {
+            float: left;
+            margin-right: 5px;
+          }
+          p {
+            float: left;
+            a {
+              &:first-child {
+                border-right: 1px solid #b3aeae;
+                padding-right: 5px;
+              }
+            }
+          }
         }
-        p {
-          float: left;
-          a {
-            &:first-child {
+
+        // 右侧
+        .right {
+          nav {
+            float: right;
+            font-size: 0;
+            a {
+              margin-left: 10px;
+              padding-right: 10px;
               border-right: 1px solid #b3aeae;
-              padding-right: 5px;
+              font-size: 12px;
+              &:last-child {
+                border: none;
+                padding-right: 0;
+              }
             }
           }
         }
       }
+    }
 
-      // 右侧
-      .right {
-        nav {
-          float: right;
-          font-size: 0;
+    // 下面部分
+    .headBottom {
+      // 版心
+      .headBottomMain {
+        width: 1200px;
+        margin: 0 auto;
+        .clearfix();
+        // logo
+        .logo {
+          float: left;
           a {
-            margin-left: 10px;
-            padding-right: 10px;
-            border-right: 1px solid #b3aeae;
-            font-size: 12px;
+            img {
+              width: 175px;
+              height: 56px;
+              margin: 25px 45px;
+            }
+          }
+        }
+        // 搜索框
+        .search {
+          float: right;
+          margin-top: 35px;
+          input {
+            // 文本框
+            &:first-child {
+              box-sizing: border-box;
+              width: 490px;
+              height: 32px;
+              padding: 0 4px;
+              border: 3px solid #ea4a36;
+              float: left;
+            }
+            // 提交按钮
             &:last-child {
+              width: 68px;
+              height: 32px;
+              background: #ea4a36;
+              color: #fff;
+              float: right;
+              cursor: pointer;
               border: none;
-              padding-right: 0;
+            }
+            // 修饰 placeholder
+            &::-webkit-input-placeholder {
+              color: yellowgreen;
             }
           }
         }
