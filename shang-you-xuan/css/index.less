@@ -1,0 +1,54 @@
+@import "mixins/clear";
+
+// 最外层包裹元素
+#wrapper {
+  // 头部
+  .headTop {
+    background-color: #eaeaea;
+    height: 30px;
+
+    // 版心元素
+    .headTopMain {
+      width: 1200px;
+      margin: 0 auto;
+      line-height: 30px;
+      .clearfix();
+
+      // 左侧
+      .left {
+        float: left;
+        h5 {
+          float: left;
+          margin-right: 5px;
+        }
+        p {
+          float: left;
+          a {
+            &:first-child {
+              border-right: 1px solid #b3aeae;
+              padding-right: 5px;
+            }
+          }
+        }
+      }
+
+      // 右侧
+      .right {
+        nav {
+          float: right;
+          font-size: 0;
+          a {
+            margin-left: 10px;
+            padding-right: 10px;
+            border-right: 1px solid #b3aeae;
+            font-size: 12px;
+            &:last-child {
+              border: none;
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
