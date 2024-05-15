@@ -153,6 +153,56 @@
           padding: 0 5px;
         }
       }
+
+      // 中间区域
+      .center {
+        margin: 5px 0 15px;
+        .clearfix();
+        // 左侧放大镜
+        .left {
+          width: 400px;
+          float: left;
+
+          .leftTop {
+            width: 400px;
+            position: relative;
+            // 小图框
+            .smallPic {
+              width: 400px;
+              height: 400px;
+              border: 1px solid #DFDFDF;
+              position: relative;
+
+              img {}
+              .mask {
+                width: 200px;
+                height: 200px;
+                background: rgba(255, 255, 255, .5);
+                border: 1px solid #ddd;
+                position: absolute;
+                top: 0;
+                left: 0;
+              }
+            }
+            // 大图框
+            .bigPic {
+              width: 400px;
+              height: 400px;
+              border: 1px solid #ddd;
+              position: absolute;
+              left: 420px;
+              top: 0;
+              overflow: hidden;
+
+              // 大图片
+              img {
+                width: 800px;
+                height: 800px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
