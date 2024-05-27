@@ -206,6 +206,52 @@
               }
             }
           }
+
+          .leftBottom {
+            width: 400px;
+            margin-top: 5px;
+            .clearfix();
+
+            // 左右按钮
+            a {
+              width: 10px;
+              height: 54px;
+              border: 1px solid #ccc;
+              background-color: #EBEBEB;
+              text-align: center;
+              line-height: 54px;
+              float: left;
+
+              &:first-child {
+                margin-right: 4px;
+              }
+            }
+
+            .picList {
+              width: 372px;
+              height: 56px;
+              float: left;
+              overflow: hidden;
+
+              ul {
+                white-space: nowrap;
+                font-size: 0;
+                transition: 0.5s linear all;
+
+                li {
+                  border: 1px solid #ccc;
+                  padding: 2px;
+                  margin-right: 20px;
+                  display: inline-block;
+
+                  img {
+                    width: 50px;
+                    height: 50px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

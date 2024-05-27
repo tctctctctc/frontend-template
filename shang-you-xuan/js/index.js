@@ -3,6 +3,7 @@ window.onload = function () {
 
   // 路径导航数据渲染
   navPathDataBind()
+
   function navPathDataBind() {
     // 获取DOM
     let navPath = document.getElementById('navPath')
@@ -28,6 +29,7 @@ window.onload = function () {
 
   // 放大镜移入移出
   bigGlassMove()
+
   function bigGlassMove() {
     let smallPicNode = document.querySelector('#content .contentMain .center .left .leftTop .smallPic')
     let bigPicNode = document.querySelector('#content .contentMain .center .left .leftTop .bigPic')
@@ -65,9 +67,73 @@ window.onload = function () {
       maskNode.style.top = `${top}px`
 
       // 移动大图框内图片
-      let scale = (smallPicNode.clientWidth- maskNode.offsetWidth) / (bigPicImg.clientWidth - bigPicNode.clientWidth)
+      let scale = (smallPicNode.clientWidth - maskNode.offsetWidth) / (bigPicImg.clientWidth - bigPicNode.clientWidth)
       bigPicImg.style.left = `${-left / scale}px`
       bigPicImg.style.top = `${-top / scale}px`
+    })
+  }
+
+  // 缩略图数据动态渲染
+  thumbnailDataBind()
+
+  function thumbnailDataBind() {
+    // 获取DOM
+    let thumbnailList = document.getElementById('thumbnailList')
+    // 获取数据
+    let pics = goodData.imageSrc
+    // 给DOM添加子节点
+    pics.forEach((pic) => {
+      // 创建li标签
+      let liNode = document.createElement('li')
+      // 创建img标签
+      let imgNode = document.createElement('img')
+      imgNode.src = pic.s
+      // 添加到li
+      liNode.appendChild(imgNode)
+      // 添加到picList
+      thumbnailList.appendChild(liNode)
+    })
+  }
+
+  // 缩略图点击事件
+  thumbnailClick()
+  function thumbnailClick() {
+    // 获取DOM
+    const thumbnailList = document.getElementById('thumbnailList')
+    const smallPic = document.querySelector('#content .contentMain .center .left .leftTop .smallPic img')
+    const bigPic = document.querySelector('#content .contentMain .center .left .leftTop .bigPic img')
+    // 获取数据
+    const pics = goodData.imageSrc
+    // 给li绑定事件
+    let i = 0
+    for (let li of thumbnailList.children) {
+      li.addEventListener('click', () => {
+        smallPic.src = pics[i].s
+        bigPic.src = pics[i].b
+        i++
+      })
+    }
+  }
+
+  // 左右按钮点击事件
+  thumbnailBtnClick()
+  function thumbnailBtnClick() {
+    // 获取DOM
+    const thumbnailBtnNode = document.querySelector('#content .contentMain .center .left .leftBottom')
+    const ulNode = document.querySelector('#content .contentMain .center .left .leftBottom .picList ul')
+    // 移动距离
+    let distance = 0
+    // 步长
+    let step = ulNode.firstElementChild?.offsetWidth + 20
+    thumbnailBtnNode.firstElementChild.addEventListener('click', () => {
+      distance -= step
+      if (distance <= -step * (ulNode.children.length - 5)) distance = -step * (ulNode.children.length - 5)
+      ulNode.style.transform = `translateX(${distance}px)`
+    })
+    thumbnailBtnNode.lastElementChild.addEventListener('click', () => {
+      distance += step
+      if (distance > 0) distance = 0
+      ulNode.style.transform = `translateX(${distance}px)`
     })
   }
 }
