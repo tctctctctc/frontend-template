@@ -136,4 +136,67 @@ window.onload = function () {
       ulNode.style.transform = `translateX(${distance}px)`
     })
   }
+
+  // 商品详情数据动态渲染
+  goodsDetailDataBind()
+  function goodsDetailDataBind() {
+    // 获取元素
+    let rightTop = document.querySelector('#content .contentMain .center .right .rightTop')
+    // 获取数据
+    let goodsData = goodData.goodsDetail
+    let str = `<h3>${goodsData.title}</h3>
+              <p>${goodsData.recommend}</p>
+              <div class="priceWrap">
+                <div class="priceTop">
+                  <span>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格</span>
+                  <div class="price">
+                    <span>￥</span>
+                    <p>${goodsData.price}</p>
+                    <i>降价通知</i>
+                  </div>
+                  <p>
+                    <span>累计评价</span>
+                    <span>${goodsData.evaluateNum}</span>
+                  </p>
+                </div>
+                <div class="priceBottom">
+                  <span>促&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销</span>
+                  <p>
+                    <span>${goodsData.promoteSales.type}</span>
+                    <span>${goodsData.promoteSales.content}</span>
+                  </p>
+                </div>
+              </div>
+              <div class="support">
+                <span>支&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;持</span>
+                <p>${goodsData.support}</p>
+              </div>
+              <div class="address">
+                <span>配&nbsp;送&nbsp;至</span>
+                <p>${goodsData.address}</p>
+              </div>`
+    // 渲染
+    rightTop.innerHTML = str
+  }
+
+  // 商品参数选择动态渲染
+  goodsParamsDataBind()
+  function goodsParamsDataBind() {
+    // 获取元素
+    let chooseWrap = document.querySelector('#content .contentMain .center .right .rightBottom .chooseWrap')
+    // 获取数据
+    let goodsParams = goodData.goodsDetail.crumbData
+    goodsParams.forEach(params => {
+      let dlNode = document.createElement('dl')
+      let dtNode = document.createElement('dt')
+      dtNode.innerText = params.title
+      dlNode.appendChild(dtNode)
+      params.data.forEach(item => {
+        let ddNode = document.createElement('dd')
+        ddNode.innerText = item.type
+        dlNode.appendChild(ddNode)
+      })
+      chooseWrap.appendChild(dlNode)
+    })
+  }
 }
