@@ -183,10 +183,11 @@ window.onload = function () {
   goodsParamsDataBind()
   function goodsParamsDataBind() {
     // 获取元素
+    let chooseResult = document.querySelector('#content .contentMain .center .right .rightBottom .chooseResult')
     let chooseWrap = document.querySelector('#content .contentMain .center .right .rightBottom .chooseWrap')
     // 获取数据
     let goodsParams = goodData.goodsDetail.crumbData
-    goodsParams.forEach(params => {
+    goodsParams.forEach((params, index) => {
       let dlNode = document.createElement('dl')
       let dtNode = document.createElement('dt')
       dtNode.innerText = params.title
@@ -197,6 +198,54 @@ window.onload = function () {
         dlNode.appendChild(ddNode)
       })
       chooseWrap.appendChild(dlNode)
+
+      dlNode.addEventListener('click', (event) => {
+       
+        if (event.target.tagName === 'DD') {
+           // 文字排他效果
+          event.target.parentElement.childNodes.forEach(item => {
+            item.style.color = '#666'
+          })
+          event.target.style.color = 'red'
+
+          // 动态添加参数选择结果
+          let countResult = chooseResult.childElementCount
+          if (index + 1 > countResult) {
+            for (let i = 0; i < index + 1 - countResult; i++) {
+              let maskNode = document.createElement('div')
+              let delNode = document.createElement('a')
+              let spanNode = document.createElement('span')
+              maskNode.className = 'mask'
+              spanNode.innerText = event.target.innerText
+              maskNode.appendChild(spanNode)
+              delNode.innerText = 'X'
+              maskNode.appendChild(delNode)
+              maskNode.style.display = 'none'
+              chooseResult.appendChild(maskNode)
+
+              // 删除参数结果
+              delNode.addEventListener('click', () => {
+                delNode.parentElement.style.display = 'none'
+                let flag = true
+                dlNode.childNodes.forEach(item => {
+                  if (item.tagName === 'DD') {
+                    item.style.color = '#666'
+                    if (flag) {
+                      item.style.color = 'red'
+                      flag = false
+                    }
+                  }
+
+                })
+              })
+            }
+            chooseResult.lastChild.style.display = 'block'
+          } else {
+            chooseResult.children[index].style.display = 'block'
+            chooseResult.children[index].firstElementChild.innerText = event.target.innerText
+          }
+        }
+      })
     })
   }
 }

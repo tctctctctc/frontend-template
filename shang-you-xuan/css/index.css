@@ -314,6 +314,26 @@
   margin-top: 10px;
   line-height: 28px;
 }
+#wrapper #content .contentMain .center .right .rightBottom .chooseResult::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#wrapper #content .contentMain .center .right .rightBottom .chooseResult .mask {
+  height: 30px;
+  background-color: snow;
+  border: 1px solid #ddd;
+  padding: 0 20px;
+  margin-right: 20px;
+  line-height: 30px;
+  text-align: center;
+  float: left;
+}
+#wrapper #content .contentMain .center .right .rightBottom .chooseResult a {
+  color: red;
+  cursor: pointer;
+  margin-left: 20px;
+}
 #wrapper #content .contentMain .center .right .rightBottom .chooseWrap dl {
   margin-top: 13px;
   margin-bottom: 13px;
@@ -342,4 +362,3 @@
 #wrapper #content .contentMain .center .right .rightBottom .chooseWrap dl dd:first-of-type {
   color: red;
 }
-/*# sourceMappingURL=index.css.map */
