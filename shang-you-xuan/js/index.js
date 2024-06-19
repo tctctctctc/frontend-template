@@ -185,6 +185,7 @@ window.onload = function () {
     // 获取元素
     let chooseResult = document.querySelector('#content .contentMain .center .right .rightBottom .chooseResult')
     let chooseWrap = document.querySelector('#content .contentMain .center .right .rightBottom .chooseWrap')
+    let price = document.querySelector('#content .contentMain .center .right .rightTop .priceWrap .priceTop .price p')
     // 获取数据
     let goodsParams = goodData.goodsDetail.crumbData
     goodsParams.forEach((params, index) => {
@@ -195,9 +196,13 @@ window.onload = function () {
       params.data.forEach(item => {
         let ddNode = document.createElement('dd')
         ddNode.innerText = item.type
+        // 价格变动
+        ddNode.changeValue = item.changePrice
         dlNode.appendChild(ddNode)
       })
       chooseWrap.appendChild(dlNode)
+
+      let prevPrive = 0
 
       dlNode.addEventListener('click', (event) => {
        
@@ -207,6 +212,10 @@ window.onload = function () {
             item.style.color = '#666'
           })
           event.target.style.color = 'red'
+
+          // 变动价格
+          price.innerText = parseInt(price.innerText) - prevPrive + event.target.changeValue
+          prevPrive = event.target.changeValue
 
           // 动态添加参数选择结果
           let countResult = chooseResult.childElementCount
@@ -235,8 +244,10 @@ window.onload = function () {
                       flag = false
                     }
                   }
-
                 })
+                // 价格变动
+                price.innerText = parseInt(price.innerText) - prevPrive
+                prevPrive = 0
               })
             }
             chooseResult.lastChild.style.display = 'block'
