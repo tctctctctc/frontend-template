@@ -408,6 +408,7 @@
                   border-bottom: 1px solid #bbb;
                   cursor: pointer;
                   float: left;
+                  border-radius: 5px;
 
                   &:first-of-type {
                     color: red;
@@ -466,6 +467,171 @@
             }
           }
 
+        }
+      }
+
+      // 选项卡
+      .goodsDetailWrap {
+        width: 1200px;
+        margin: 30px auto 0;
+        .clearfix();
+
+        // 左边侧边栏
+        .leftAside {
+          width: 210px;
+          border: 1px solid #ccc;
+          float: left;
+          
+
+          .asideTop {
+            h4 {
+              width: 105px;
+              height: 40px;
+              border-top: #fff;
+              float: left;
+              line-height: 40px;
+              text-align: center;
+              border-bottom: 1px solid #ccc;
+              border-top: 3px solid #ccc;
+
+              &.active {
+                border-top: 3px solid #e1251b;
+                line-height: 37px;
+                border-bottom: none;
+              }
+            }
+          }
+          .asideContent {
+            padding: 10px;
+            div {
+              ul {
+                &.goodsList1 {
+                  li {
+                    width: 50%;
+                    border-bottom: 1px dashed #ededed;
+                    line-height: 28px;
+                    float: left;
+                  }
+                }
+                &.goodsList2 {
+                  li {
+                    margin: 5px 0 15px;
+                    border-bottom: 1px solid #ededed;
+                    float: left;
+                    img {
+                      width: 152px;
+                    }
+                    span {}
+                    p {
+                      color: #c81623;
+                      font-size: 16px;
+                    }
+                    .button {
+                      margin: 5px 0;
+                      text-align: center;
+        
+                      a {
+                        color: #8c8c8c;
+                        padding: 2px 14px;
+                        line-height: 18px;
+                        border: 1px solid #8c8c8c;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // 右边详情
+        .rightDetail {
+          width: 980px;
+          float: right;
+
+          .chooseBox {
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+
+            h4 {
+              border-bottom: 1px solid #ddd;
+              background-color: #f1f1f1;
+              color: #333;
+              padding: 5px 0 5px 15px;
+            }
+
+            .listWrap {
+              height: 170px;
+              padding-top: 10px;
+
+              .left {
+                width: 127px;
+                height: 165px;
+                float: left;
+                position: relative;
+                img {
+                  width: 87px;
+                }
+                p {
+                  color: #c81623;
+                  font-size: 16px;
+                }
+                i {
+                  position: absolute;
+                  top: 48px;
+                  right: -25px;
+                  font-size: 16px;
+                }
+              }
+
+              .middle {
+                width: 668px;
+                height: 165px;
+                float: left;
+                li {
+                  width: 127px;
+                  margin: 0 20px;
+                  float: left;
+
+                  img {
+                    width: 120px;
+                    height: 130px;
+                  }
+                  > span {}
+                  div {
+                    input {}
+                    span {}
+                  }
+                }
+              }
+
+              .right {
+                border-left: 1px solid #ddd;
+                width: 153px;
+                height: 165px;
+                padding-left: 20px;
+                float: left;
+
+                div {}
+                p {
+                  font-weight: bold;
+                  margin-bottom: 10px;
+                }
+                i {
+                  margin: 10px 0;
+                  color: #B1191A;
+                  font-size: 16px;
+                  margin-bottom: 10px;
+                }
+                button {
+                  padding: 10px 25px;
+                  font-size: 16px;
+                  color: white;
+                  background-color: #e1251b;
+                }
+              }
+            }
+          }
         }
       }
     }

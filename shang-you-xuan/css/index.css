@@ -358,6 +358,7 @@
   border-bottom: 1px solid #bbb;
   cursor: pointer;
   float: left;
+  border-radius: 5px;
 }
 #wrapper #content .contentMain .center .right .rightBottom .chooseWrap dl dd:first-of-type {
   color: red;
@@ -406,4 +407,138 @@
   border: none;
   float: left;
   cursor: pointer;
+}
+#wrapper #content .contentMain .goodsDetailWrap {
+  width: 1200px;
+  margin: 30px auto 0;
+}
+#wrapper #content .contentMain .goodsDetailWrap::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside {
+  width: 210px;
+  border: 1px solid #ccc;
+  float: left;
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside .asideTop h4 {
+  width: 105px;
+  height: 40px;
+  border-top: #fff;
+  float: left;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  border-top: 3px solid #ccc;
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside .asideTop h4.active {
+  border-top: 3px solid #e1251b;
+  line-height: 37px;
+  border-bottom: none;
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside .asideContent {
+  padding: 10px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside .asideContent div ul.goodsList1 li {
+  width: 50%;
+  border-bottom: 1px dashed #ededed;
+  line-height: 28px;
+  float: left;
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside .asideContent div ul.goodsList2 li {
+  margin: 5px 0 15px;
+  border-bottom: 1px solid #ededed;
+  float: left;
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside .asideContent div ul.goodsList2 li img {
+  width: 152px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside .asideContent div ul.goodsList2 li p {
+  color: #c81623;
+  font-size: 16px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside .asideContent div ul.goodsList2 li .button {
+  margin: 5px 0;
+  text-align: center;
+}
+#wrapper #content .contentMain .goodsDetailWrap .leftAside .asideContent div ul.goodsList2 li .button a {
+  color: #8c8c8c;
+  padding: 2px 14px;
+  line-height: 18px;
+  border: 1px solid #8c8c8c;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail {
+  width: 980px;
+  float: right;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox {
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox h4 {
+  border-bottom: 1px solid #ddd;
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 5px 0 5px 15px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap {
+  height: 170px;
+  padding-top: 10px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .left {
+  width: 127px;
+  height: 165px;
+  float: left;
+  position: relative;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .left img {
+  width: 87px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .left p {
+  color: #c81623;
+  font-size: 16px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .left i {
+  position: absolute;
+  top: 48px;
+  right: -25px;
+  font-size: 16px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle {
+  width: 668px;
+  height: 165px;
+  float: left;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle li {
+  width: 127px;
+  margin: 0 20px;
+  float: left;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle li img {
+  width: 120px;
+  height: 130px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .right {
+  border-left: 1px solid #ddd;
+  width: 153px;
+  height: 165px;
+  padding-left: 20px;
+  float: left;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .right p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .right i {
+  margin: 10px 0;
+  color: #B1191A;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+#wrapper #content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .right button {
+  padding: 10px 25px;
+  font-size: 16px;
+  color: white;
+  background-color: #e1251b;
 }

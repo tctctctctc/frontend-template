@@ -259,4 +259,27 @@ window.onload = function () {
       })
     })
   }
+
+  // 选择搭配中间区域复选框选中套餐价格变动效果
+  choosePrise()
+  function choosePrise() {
+    // 获取元素
+    let leftPrice = document.querySelector('#content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .left p')
+    let lis = document.querySelectorAll('#content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle li div input')
+    let rightPrice = document.querySelector('#content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .right i')
+
+    let tempPrice = Number(leftPrice.innerText.split('￥')[1])
+
+    lis.forEach(i => {
+      i.addEventListener('change', () => {
+        let price = i.parentElement.lastElementChild.innerText
+        if (i.checked === true) {
+          tempPrice += Number(price)
+        } else {
+          tempPrice -= Number(price)
+        }
+        rightPrice.innerText = '￥' + tempPrice
+      })
+    })
+  }
 }

@@ -52,7 +52,7 @@ small {
 }
 
 /* 重置列表元素 */
-ul, ol {
+ul, ol, li {
   list-style: none;
 }
 
