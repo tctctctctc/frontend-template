@@ -186,6 +186,20 @@ window.onload = function () {
     let chooseResult = document.querySelector('#content .contentMain .center .right .rightBottom .chooseResult')
     let chooseWrap = document.querySelector('#content .contentMain .center .right .rightBottom .chooseWrap')
     let price = document.querySelector('#content .contentMain .center .right .rightTop .priceWrap .priceTop .price p')
+    
+    let leftPrice = document.querySelector('#content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .left p')
+    let rightPrice = document.querySelector('#content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .right i')
+    let lis = document.querySelectorAll('#content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle li div input')
+
+    let computeRightPrice = (leftPrice) => {
+      let temp = 0
+      lis.forEach(item => {
+        if (item.checked === true) {
+          temp += Number(item.parentElement.lastElementChild.innerText)
+        }
+      })
+      rightPrice.innerText = '￥' + (leftPrice + temp)
+    }
     // 获取数据
     let goodsParams = goodData.goodsDetail.crumbData
     goodsParams.forEach((params, index) => {
@@ -247,6 +261,8 @@ window.onload = function () {
                 })
                 // 价格变动
                 price.innerText = parseInt(price.innerText) - prevPrive
+                leftPrice.innerText = '￥' + price.innerText
+                computeRightPrice(Number(price.innerText))
                 prevPrive = 0
               })
             }
@@ -255,6 +271,10 @@ window.onload = function () {
             chooseResult.children[index].style.display = 'block'
             chooseResult.children[index].firstElementChild.innerText = event.target.innerText
           }
+
+          // 将价格写入选择搭配
+          leftPrice.innerText = '￥' + price.innerText
+          computeRightPrice(Number(price.innerText))
         }
       })
     })
@@ -268,18 +288,48 @@ window.onload = function () {
     let lis = document.querySelectorAll('#content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle li div input')
     let rightPrice = document.querySelector('#content .contentMain .goodsDetailWrap .rightDetail .chooseBox .listWrap .right i')
 
-    let tempPrice = Number(leftPrice.innerText.split('￥')[1])
+    let tempPrice = 0
 
     lis.forEach(i => {
       i.addEventListener('change', () => {
+        let leftPriceNew = Number(leftPrice.innerText.split('￥')[1])
         let price = i.parentElement.lastElementChild.innerText
         if (i.checked === true) {
           tempPrice += Number(price)
         } else {
           tempPrice -= Number(price)
         }
-        rightPrice.innerText = '￥' + tempPrice
+        rightPrice.innerText = '￥' + (tempPrice + leftPriceNew)
       })
     })
+  }
+
+  // 选项卡切换
+  function tabChange(tabs, containers) {
+    tabs.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        tabs.forEach(i => {
+          i.className = ''
+        })
+        containers.forEach(c => {
+          c.className = ''
+        })
+        item.className = 'active'
+        console.log(containers);
+        containers[index].className = 'active'
+      })
+    })
+  }
+
+  chooseWrapTabChange()
+  function chooseWrapTabChange() {
+    // 元素
+    tabs1 = document.querySelectorAll('#content .contentMain .goodsDetailWrap .leftAside .asideTop h4')
+    contents1 = document.querySelectorAll('#content .contentMain .goodsDetailWrap .leftAside .asideContent >div')
+    tabs2 = document.querySelectorAll('#content .contentMain .goodsDetailWrap .rightDetail .bottomDetail ul li')
+    content2 = document.querySelectorAll('#content .contentMain .goodsDetailWrap .rightDetail .tabContents div')
+    
+    tabChange(tabs1, contents1)
+    tabChange(tabs2, content2)
   }
 }

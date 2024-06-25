@@ -504,6 +504,7 @@
           .asideContent {
             padding: 10px;
             div {
+              display: none;
               ul {
                 &.goodsList1 {
                   li {
@@ -539,6 +540,9 @@
                     }
                   }
                 }
+              }
+              &.active {
+                display: block;
               }
             }
           }
@@ -628,6 +632,43 @@
                   font-size: 16px;
                   color: white;
                   background-color: #e1251b;
+                }
+              }
+            }
+          }
+
+          .bottomDetail {
+            
+            .tabBtns {
+              background-color: #ededed;
+              .clearfix();
+
+              li {
+                border: 1px solid #ddd;
+                background-color: #fff;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 11px;
+                float: left;
+
+                &.active {
+                  background-color: red;
+                  a {
+                    color: #fff;
+                  }
+                }
+                
+              }
+            }
+
+            .tabContents {
+              div {
+                padding-left: 20px;
+                line-height: 25px;
+                display: none;
+                &.active {
+                  margin: 10px 0;
+                  display: block;
                 }
               }
             }
