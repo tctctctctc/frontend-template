@@ -677,4 +677,90 @@
       }
     }
   }
+
+  // 右侧侧边栏
+  .rightAside {
+    width: 300px;
+    height: 100%;
+    background-color: #7a6e6e;
+    transition: 0.5s;
+    position: fixed;
+    top: 0;
+
+    &.asideClose {
+      right: -294px;
+    }
+    &.asideOpen {
+      right: 0;
+    }
+
+    .btns {
+      width: 35px;
+      height: 35px;
+      background: #7a6e6e;
+      border-radius: 3px 0 0 3px;
+      background-size: 35px 35px;
+      left: -29px;
+      position: absolute;
+      &.btnClose {
+        background-image: url('../images/list.png');
+      }
+      &.btnOpen {
+        background-image: url('../images/cross.png');
+      }
+    }
+
+    // 内容区
+    .content {
+      width: 294px;
+      background-color: bisque;
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      z-index: 60;
+    }
+
+    // 侧边导航
+    .navList {
+      position: absolute;
+      left: -29px;
+      top: 50%;
+      transform: translateY(-50%);
+      li {
+        width: 35px;
+        height: 35px;
+        position: relative;
+        p {
+          width: 35px;
+          height: 35px;
+          background-color: #7a6e6e;
+          background-image: url('../images/toolbars.png');
+          background-position: -87px -174px;
+          transition: 0.5s;
+        }
+        i {
+          width: 62px;
+          height: 35px;
+          text-align: center;
+          line-height: 35px;
+          position: absolute;
+          left: 35px;
+          transition: 0.5s;
+          top: 0;
+          background-color: #7a6e6e;
+        }
+
+        &:hover {
+          p {
+            background-color: pink;
+          }
+          i {
+            background-color: pink;
+            left: -62px;
+          }
+        }
+      }
+    }
+  }
 }

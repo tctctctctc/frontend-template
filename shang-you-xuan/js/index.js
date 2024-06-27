@@ -332,4 +332,23 @@ window.onload = function () {
     tabChange(tabs1, contents1)
     tabChange(tabs2, content2)
   }
+
+  // 右边侧边栏点击效果
+  rightAsideBind()
+  function rightAsideBind() {
+    let btn = document.querySelector('#wrapper .rightAside .btns')
+
+    let flag = true
+
+    btn.addEventListener('click', () => {
+      if (flag) {
+        btn.className = 'btns btnOpen'
+        btn.parentElement.className = 'rightAside asideOpen'
+      } else {
+        btn.className = 'btns btnClose'
+        btn.parentElement.className = 'rightAside asideClose'
+      }
+      flag = !flag
+    })
+  }
 }
