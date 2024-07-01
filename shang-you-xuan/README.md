@@ -170,3 +170,7 @@
   - 外层 `left: -29px`， 垂直居中
   - 内侧每一个元素和面包屑相似
   - 展开的元素：宽高 `62px*35px`，相对父元素 `left: 35px`，动画 `left: 0.3s ease-in-out 0.1s`
+
+  ## 4. 预览
+
+  ![尚优选](images/preview.PNG)
